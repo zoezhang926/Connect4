@@ -1,0 +1,268 @@
+/* body and title */
+h1,
+#currentP{
+	color:transparent;
+	font-weight: 900;
+	font-size: 3em;
+	-webkit-text-stroke:2px #8bf1ff;
+	text-align: center;
+	background: rgba(12, 12, 12, 0);
+  text-shadow: 0 0 50px #90dcff;
+}
+#currentP{
+  color:transparent;
+	font-size: 1em;
+	-webkit-text-stroke:2px #8bf1ff;
+	text-align: center;
+	background: rgba(12, 12, 12, 0);
+  text-shadow: 0 0 50px #90dcff;
+}
+body{
+  background-image: url('starsky.jpg');
+  text-align: center;
+  background-size: cover;
+}
+.star {
+  background: #ffffff;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  position: absolute;
+}
+.shine {
+  background: white;
+  animation: glitter 10s linear 0s infinite normal;
+     -webkit-animation: glitter 10s linear 0s infinite normal;
+    -moz-animation: glitter 10s linear 0s infinite normal;
+    -ms-animation: glitter 10s linear 0s infinite normal;
+    -o-animation: glitter 10s linear 0s infinite normal;
+}
+.one {
+  top: 20%;
+  left: 25%;
+  animation-delay: -2s;
+}
+
+.two {
+  top: 19%;
+  left: 38%;
+  animation-delay: -1.7142857143s;
+}
+
+.three {
+  top: 9%;
+  left: 46%;
+  animation-delay: -1.4285714286s;
+}
+
+.four {
+  top: 13%;
+  left: 54%;
+  animation-delay: -1.4285714286s;
+}
+
+.five {
+  top: 12%;
+  left: 66%;
+  animation-delay: -0.8571428571s;
+}
+
+.six {
+  top: 20%;
+  left: 70%;
+  animation-delay: -0.5714285714s;
+}
+@keyframes glitter {
+  0% {
+      transform: scale(1.0);
+      opacity: 1;
+      box-shadow: 0px 0px 10px 5px #98f3ff;
+  }
+  25% {
+      transform: scale(0.5);
+      opacity: 0;
+  }
+  50% {
+      transform: scale(1.0);
+      opacity: 1;
+      box-shadow: 0px 0px 10px 5px #027a9e;
+  }
+  75% {
+      transform: scale(0.5);
+      opacity: 0;
+  }
+  100% {
+      transform: scale(1.0);
+      opacity: 1;
+      box-shadow: 0px 0px 10px 5px #ffffff;
+  }
+}
+
+/* game board table */
+
+#game{
+  text-align: center;
+}
+#board{
+  display: inline-block;
+}
+
+#board td {
+  width: 80px;
+  height: 80px;
+  border: solid 1px #666;
+}
+
+
+/* pieces are div within game table cells: draw as colored circles */
+
+.piece {
+  /* TODO: make into circles */
+  margin: 5px;
+  width: 80%;
+  height: 80%;
+  border-radius:50%;
+  animation: fall 0.8s;
+}
+
+/* TODO: make pieces red/blue,  depending on player 1/2 piece */
+
+.piece.p1 {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-image: linear-gradient(0deg,
+  #d4fc79,
+  #96e6a1 30%,
+  #84fab0 60%,
+  #8fd3f4 100%);
+  animation: fall 0.8s, rotate 2s 0.8s linear infinite;
+}
+
+.piece.p1:before {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-image: linear-gradient(0deg,
+  #d4fc79,
+  #96e6a1 30%,
+  #84fab0 60%,
+  #8fd3f4 200%);
+  filter: blur(35px);
+}
+.piece.p1:after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: url('phone.gif');
+  background-position: bottom;
+  background-size: 100%;}
+span {
+  color: #fff;
+}
+.piece.p2 {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-image: linear-gradient(0deg,
+  #f794a4,
+  #ed6ea0 30%,
+  #ee9ca7 60%,
+  #fdd6bd 100%);
+  animation: fall 0.8s, rotate 2s 0.8s linear infinite;
+}
+
+.piece.p2:before {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-image: linear-gradient(0deg,
+  #f794a4,
+  #ed6ea0 30%,
+  #ee9ca7 60%,
+  #fdd6bd 100%);
+  filter: blur(35px);
+}
+.piece.p2:after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: url('pink.gif');
+  background-position: top;
+  background-size: 100%;}
+span {
+  color: #fff;
+}
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+  }   
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes fall{
+  from{
+    transform:translateY(-400px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+/* column-top is table row of clickable areas for each column */
+
+#column-top td {
+  border: dashed 1px lightgray;
+}
+
+#column-top td:hover {
+  background-color: rgb(169, 248, 255);
+}
+
+#column-top td {
+color: rgba(255,255,255,1);
+transition: all 0.5s;
+position: relative;
+border: 1px solid rgba(255,255,255,0.5);
+overflow: hidden;
+}
+
+#column-top td:before, #column-top td:after{
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+background-color: rgba(255,255,255,0.25);
+transition: all 0.3s;
+transform: translate(0,-100%);
+transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+#column-top td:after{
+transition-delay: 0.2s;
+}
+#column-top td:hover:before, #column-top td:hover:after{
+transform: translate(0,0);
+}
+
+
